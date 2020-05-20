@@ -47,8 +47,9 @@ infix `is_a_max_of`:55 := is_max
 
 /-
 Let's prove something now! A set of real numbers has at most one maximum. Here 
-everything left of the final `:` is introducing the objects and assumption. The equality
-`x = y` right of the colon is the conclusion.
+everything left of the final `:` is introducing the objects and assumption. 
+
+The equality `x = y` right of the colon is the conclusion.
 -/
 lemma unique_max (A : set ℝ) (x y : ℝ) (hx : x is_a_max_of A) (hy : y is_a_max_of A) : x = y :=
 begin
@@ -184,6 +185,10 @@ begin
   linarith,
 end
 
+-- seems like when we have 'there exists' we can use 'use'
+-- linarith does all the messy algebra, could be used to do things
+-- humans don't like doing? But will it make a proof have less 'beauty' from brute?
+
 /- 
 Note how `linarith` was used for both sub-goals at the end of the above proof.
 We could have shortened that using the semi-colon combinator instead of comma, 
@@ -197,6 +202,8 @@ begin
   contrapose!,
   exact assume h, ⟨(y-x)/2, by linarith, by linarith⟩,
 end
+
+--                  ^ witness, ^(proof              ) (above)
 
 /-
 The angle brackets `⟨` and `⟩` introduce compound data or proofs. A proof
