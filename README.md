@@ -1,3 +1,6 @@
+I have copied this README from Patrick.
+
+
 # lean-tutorials
 
 The goal of this project is to quickly teach you how to use Lean for
